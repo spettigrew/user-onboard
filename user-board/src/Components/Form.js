@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Form = (props) => {
-    const {formSubmit, form, handleChanges, errors}= props;
+    const {formSubmit, form, handleChanges, errors, validated}= props;
 
     return (
         <div>
@@ -28,7 +28,7 @@ const Form = (props) => {
                         placeholder={"Password"}
                         onChange={handleChanges}
                     />
-                    {errors.name.length > 0 && <p>{errors.password}</p>}
+                    {errors.password.length > 0 && <p>{errors.password}</p>}
                 </label>
                 <label htmlFor={'email'}>
                     <input
@@ -39,10 +39,10 @@ const Form = (props) => {
                         placeholder={'Email'}
                         onChange={handleChanges}
                     />
-                    {errors.name.length > 0 && <p>{errors.email}</p>}
+                    {errors.email.length > 0 && <p>{errors.email}</p>}
                 </label>
                 <label
-                    for={'terms'}>Agree to terms</label>
+                    htmlFor={'terms'}>Agree to terms
                 <input
                     id={'terms'}
                     type={'checkbox'}
@@ -50,6 +50,8 @@ const Form = (props) => {
                     checked={form.terms}
                     onChange={handleChanges}
                 />
+                    {errors.terms.length > 0 && <p>{errors.terms}</p>}
+                </label>
                 <button disabled={!validated} type={'submit'}>Submit</button>
             </form>
 

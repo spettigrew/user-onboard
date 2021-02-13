@@ -61,7 +61,7 @@ function App() {
       }
       
       const handlePost = (form) => {
-        axios.post('https://regres.in/api/users', form)
+        axios.post('https://reqres.in/api/users', form)
         .then((res) => {
           console.log(res.data);
         })
@@ -96,7 +96,7 @@ function App() {
     
     setForm({
       ...form,
-      [e.target.name]: e.target.value
+      [e.target.name]: value
     })
   };
 
@@ -108,6 +108,7 @@ function App() {
       form={form}
       handleChanges={handleChanges}
       errors={errors}
+      validated={validated}
       />
     </div>
   );
